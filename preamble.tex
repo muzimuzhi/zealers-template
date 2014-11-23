@@ -1,0 +1,100 @@
+%================ preamble ===============
+
+%================ package ================	
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{bbding}	% \FiveStar
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{geometry}
+\usepackage{graphics}
+%\usepackage{ntheorem}
+%\usepackage{pifont}
+\usepackage{tabu}
+\usepackage[normalem]{ulem} % use normalem to protect \emph
+\usepackage{verbatim} % comment environment
+\usepackage{xcolor}
+
+\usepackage[colorlinks=true,CJKbookmarks=true]{hyperref}
+	% toc's hyperlink is also made by hyperref
+
+
+%============= theorem style =============
+\newtheoremstyle{Question}
+  {\topsep}    % ABOVESPACE
+  {\topsep} % BELOWSPACE
+  {\itshape}   % BODYFONT
+  {0pt}        % INDENT (empty value is the same as 0pt)
+  {\bfseries}  % HEADFONT
+  {：}         % HEADPUNCT
+  {0pt plus 1pt minus 1pt} % HEADSPACE
+  {}           % CUSTOM-HEAD-SPEC
+  
+\begin{comment}
+\newtheoremstyle{Answer}
+  {0.25\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\normalfont}  % BODYFONT
+  {0pt}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {：}         % HEADPUNCT
+  {0pt plus 1pt minus 1pt} % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+\end{comment}
+  
+\newtheoremstyle{postQuestion}
+  {0.5\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {2em}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {：}         % HEADPUNCT
+  {0pt plus 1pt minus 1pt} % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+
+\begin{comment}
+\newtheoremstyle{postAnswer}
+  {0.25\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\normalfont}  % BODYFONT
+  {2em}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {：}         % HEADPUNCT
+  {0pt plus 1pt minus 1pt} % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+\end{comment}
+
+\theoremstyle{Question}
+\newtheorem{question}{\color{magenta}问题}
+
+%\theoremstyle{Answer}
+%\newtheorem*{answer}{\color{blue}回答}
+
+\theoremstyle{postQuestion}
+\newtheorem*{postquestion}{\color{magenta!50}追问}
+
+%\theoremstyle{postAnswer}
+%\newtheorem*{postanswer}{\color{blue!50}回答}
+
+\newcommand{\answer}{\par\noindent\textbf{\textcolor{blue}{回答：}}\normalfont\songti}
+\newcommand{\postanswer}{\par\textbf{\textcolor{blue!50}{回答：}}\rmfamily\songti}
+
+%============ new theorems ==============
+\newcommand\tips{\bgroup\markoverwith
+  {\textcolor{yellow}{\rule[-1.05ex]{2pt}{3.55ex}}}\ULon}
+	% enable background colored (in yellow) multiline text
+	%\rule[-0.5ex]{2pt}{2.5ex}
+	% ref: http://tex.stackexchange.com/questions/48501/soul-broken-highlighting-with-xcolor-when-using-selectcolormodel/48549#48549
+	% http://bbs.ctex.org/forum.php?mod=viewthread&tid=73680
+
+\newcommand\host[1][主持人]{\textcolor{red}{\bf#1}\par}
+\newcommand\lecturer[1][主讲人]{\textcolor{blue}{\bf#1}\par}
+
+\newcommand{\info}[3]{\begin{table}[h]
+  \centering
+  \begin{tabu}{>{\heiti}X[2,r]>{\kaishu}X[3]}
+  	主持人： & #1  \\
+  	主讲人： & #2  \\
+  	整理者： & #3
+  \end{tabu}
+  %\label{}
+\end{table}
+}
