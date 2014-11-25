@@ -1,0 +1,150 @@
+%===== please compile with XeLaTeX =======
+\documentclass[a4paper,12pt]{ctexart}
+\title{\textbf{ZJU-zealers 学科之夜}%
+	\footnote{本文档整理自QQ群聊记录，或夹入了整理者的个人理解。如遇错误或不规范之处，请不吝指正。}
+	\footnote{作为公开模板，本文档只作格式展示，不呈现具体内容。}
+}
+\author{}
+\date{2014年mm月dd日}
+
+
+%================ preamble ===============
+%=========================================
+
+%================ package ================	
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{bbding}	% \FiveStar
+\usepackage[shortlabels,inline]{enumitem}
+\usepackage{geometry}
+\usepackage{graphics}
+%\usepackage{ntheorem}
+%\usepackage{pifont}
+\usepackage{tabu}
+\usepackage[normalem]{ulem} % use normalem to protect \emph
+\usepackage{xcolor}
+
+\usepackage[colorlinks=true,CJKbookmarks=true]{hyperref}
+
+
+%============= theorem style =============
+\newtheoremstyle{Question}
+  {\topsep}    % ABOVESPACE
+  {\topsep} % BELOWSPACE
+  {\itshape}   % BODYFONT
+  {0pt}        % INDENT (empty value is the same as 0pt)
+  {\bfseries}  % HEADFONT
+  {：}         % HEADPUNCT
+  {0pt plus 1pt minus 1pt} % HEADSPACE
+  {}           % CUSTOM-HEAD-SPEC
+  
+\newtheoremstyle{postQuestion}
+  {0.5\topsep}   % ABOVESPACE
+  {\topsep}   % BELOWSPACE
+  {\itshape}  % BODYFONT
+  {2em}       % INDENT (empty value is the same as 0pt)
+  {\bfseries} % HEADFONT
+  {：}         % HEADPUNCT
+  {0pt plus 1pt minus 1pt} % HEADSPACE
+  {}          % CUSTOM-HEAD-SPEC
+
+\theoremstyle{Question}
+\newtheorem{question}{\color{magenta}问题}
+
+\theoremstyle{postQuestion}
+\newtheorem*{postquestion}{\color{magenta!50}追问}
+
+%============ new theorems ==============
+\newcommand{\answer}{\par\noindent\textbf{\textcolor{blue}{回答：}}\normalfont\songti}
+\newcommand{\postanswer}{\par\textbf{\textcolor{blue!50}{回答：}}\rmfamily\songti}
+
+\newcommand\tips{\bgroup\markoverwith
+  {\textcolor{yellow}{\rule[-1.05ex]{2pt}{3.55ex}}}\ULon}
+	% enable background colored (in yellow) multiline text
+	%\rule[-0.5ex]{2pt}{2.5ex}
+
+\newcommand\host[1][主持人]{\textcolor{red}{\bf#1}\par}
+\newcommand\lecturer[1][主讲人]{\textcolor{blue}{\bf#1}\par}
+
+\newcommand{\info}[3]{\begin{table}[h]
+  \centering
+  \begin{tabu}{>{\heiti}X[2,r]>{\kaishu}X[3]}
+  	主持人： & #1  \\
+  	主讲人： & #2  \\
+  	整理者： & #3
+  \end{tabu}
+  %\label{}
+\end{table}
+}
+
+
+%============== document ===============
+%=======================================
+\begin{document}
+\maketitle
+\info{主持人} % host
+	 {主讲人} % lecturer(s)
+	 {整理者} % volunteer(s)
+	 
+% example
+\begin{center}
+	\textcolor{red}{主持人} \quad \textcolor{blue}{主讲人} \quad \colorbox{yellow}{Tips}
+\end{center}
+
+\tableofcontents
+
+\section{开场白}
+\host
+Hi
+
+\section{主体介绍}
+\lecturer
+Hi
+
+\subsection{第一部分}
+第一点……
+
+第二点……
+
+\subsection{第二部分}
+……
+
+
+\section{提问与交流}
+\begin{question}[提问者]
+  问题内容
+  
+  \answer  回答内容
+\end{question}
+
+\begin{question}[提问者]
+  问题内容
+  
+  \answer  回答内容
+\end{question}
+
+\begin{postquestion}[追问者]
+  追问内容
+  
+  \postanswer 回答内容
+\end{postquestion}
+
+\begin{question}[提问者]
+  问题内容
+  
+  \answer  回答内容
+\end{question}
+
+\section{未尽事项}
+文本强调的一些例子：
+\begin{table}[h]
+	\centering
+	\begin{tabu*}{lll}
+		效果名 & 输入 & 输出 \\ \hline
+		加粗 & \verb+\textbf{粗粗的}+ & \textbf{粗粗的} \\
+		下划线 & \verb+\uline{一条线}+ & \uline{一条线} \\
+		文字颜色 & \verb+\textcolor{red}{红红的}+ & \textcolor{red}{红红的} \\
+		高亮 & \verb+\tips{蓝蓝的}+ & \tips{蓝蓝的}
+	\end{tabu*}
+\end{table}
+
+\end{document}
